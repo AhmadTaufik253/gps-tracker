@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GeofenceController;
+use App\Http\Controllers\Api\LocationHistoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/geofence-exit', [GeofenceController::class, 'geofenceExit']);
+
+Route::post('/location-history', [LocationHistoryController::class, 'store']);
+Route::get('/location-history/{device_id}', [LocationHistoryController::class, 'index']);
+
